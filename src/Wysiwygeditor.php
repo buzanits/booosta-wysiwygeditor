@@ -15,7 +15,8 @@ class Wysiwygeditor extends \booosta\ui\UI
     parent::after_instanciation();
 
     if(is_object($this->topobj) && is_a($this->topobj, "\\booosta\\webapp\\Webapp")):
-      $this->topobj->moduleinfo['wysiwygeditor'] = $this->type;
+      $this->topobj->moduleinfo['wysiwygeditor']['type'] = $this->type;
+      $this->topobj->moduleinfo['wysiwygeditor']['lang'] = $this->language;
       if($this->topobj->moduleinfo['jquery']['use'] == '') $this->topobj->moduleinfo['jquery']['use'] = true;;
     endif;
 
@@ -25,12 +26,16 @@ class Wysiwygeditor extends \booosta\ui\UI
   public function set_type($type) 
   { 
     $this->type = $type;
-    $this->topobj->moduleinfo['wysiwygeditor'] = $type;
+    $this->topobj->moduleinfo['wysiwygeditor']['type'] = $type;
   }
 
   public function set_content($content) { $this->content = $content; }
   public function set_ajaxurl($ajaxurl) { $this->ajaxurl = $ajaxurl; }
-  public function set_language($language) { $this->language = $language; }
+
+  public function set_language($language) { 
+    $this->language = $language; 
+    $this->topobj->moduleinfo['wysiwygeditor']['lang'] = $language;
+  }
 
   public function get_htmlonly()
   {

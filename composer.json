@@ -25,6 +25,6 @@
         "php": ">=8.0.0",
         "npm-asset/ckeditor--ckeditor5-build-classic": "^33",
         "npm-asset/ckeditor--ckeditor5-build-inline": "^33",
-        "booosta/ui": "dev-master"
+        "booosta/ui": "^4.0"
     }
 }
